@@ -1,10 +1,10 @@
 package com.practicalunittesting.chp5Tdd;
 
-import org.junit.Test;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+
+import org.junit.Test;
 
 /**
  * Created by Veezq on 2015-10-31.
@@ -56,6 +56,19 @@ public class RaceResultsServiceTest {
         raceResults.send(message);
         verify(clientA, never()).receive(message);
     }
+
+  @Test
+  public void shouldSendMessageOnSubscibedTopicOnly(){
+    raceResults.addSubscriber(clientA, Topic.HORSE_RACES);
+//    raceResults.addSubscriber(clientB, Topic.F1_RACES);
+
+    raceResults.sendOnTopics(message, Topic.HORSE_RACES);
+
+    verify(clientA).receive(message);
+    verify(clientB, never()).receive(message);
+
+  }
+
 
 
 }
