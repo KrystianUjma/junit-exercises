@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class RaceResultsService {
 
-  private static Map<Topic,Set<Client>> topicsClients = new HashMap<>();
+  private static Map<Topic,Set<Client>> topicsClients = new HashMap();
   private Logger logger;
 
   static {

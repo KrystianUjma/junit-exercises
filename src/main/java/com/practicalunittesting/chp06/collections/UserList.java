@@ -8,6 +8,8 @@ import java.util.List;
  * Visit http://practicalunittesting.com for more information.
  *
  * @author Tomek Kaczanowski
+ *
+ *
  */
 public class UserList {
 
